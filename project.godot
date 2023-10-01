@@ -20,6 +20,7 @@ VideoMaker="*res://globals/video_maker.gd"
 
 [editor]
 
+movie_writer/movie_file="C:/Users/hr_mo/Desktop/record.avi"
 script/templates_search_path="res://templates"
 
 [rendering]
