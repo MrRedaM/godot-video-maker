@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 VideoMaker="*res://globals/video_maker.gd"
 
+[editor]
+
+script/templates_search_path="res://templates"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

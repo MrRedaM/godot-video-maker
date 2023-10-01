@@ -1,40 +1,35 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxbnox56cop27"]
+[gd_scene load_steps=8 format=3 uid="uid://bxbnox56cop27"]
 
 [ext_resource type="Script" path="res://debug/debug_scene.gd" id="1_2q6uv"]
 [ext_resource type="Script" path="res://entities/sequence.gd" id="1_p7vsc"]
-[ext_resource type="Script" path="res://events/appear_event.gd" id="2_5s8np"]
+[ext_resource type="Script" path="res://events/fade_in_event.gd" id="3_j7wuk"]
+[ext_resource type="Script" path="res://events/appear_event.gd" id="4_afvx1"]
 [ext_resource type="Texture2D" uid="uid://bgha5xbevtx21" path="res://icon.svg" id="4_igiwr"]
 
-[sub_resource type="Resource" id="Resource_v6wm3"]
-script = ExtResource("2_5s8np")
+[sub_resource type="Resource" id="Resource_qt0gd"]
+script = ExtResource("3_j7wuk")
 target_node_path = NodePath("Sprite2D")
 start_mode = 0
+duration = 3.0
+trans_type = 0
+ease_type = 0
 delay = 1.0
 
-[sub_resource type="Resource" id="Resource_wrxcu"]
-script = ExtResource("2_5s8np")
+[sub_resource type="Resource" id="Resource_ymtlh"]
+script = ExtResource("4_afvx1")
 target_node_path = NodePath("Label")
-start_mode = 0
-delay = 1.0
-
-[sub_resource type="Resource" id="Resource_tmvty"]
-script = ExtResource("2_5s8np")
-target_node_path = NodePath("Label2")
 start_mode = 1
+duration = 1.0
+trans_type = 0
+ease_type = 0
 delay = 0.0
-
-[sub_resource type="Resource" id="Resource_7psme"]
-script = ExtResource("2_5s8np")
-target_node_path = NodePath("Label3")
-start_mode = 0
-delay = 2.0
 
 [node name="DebugScene" type="Node"]
 script = ExtResource("1_2q6uv")
 
 [node name="Sequence" type="Node" parent="."]
 script = ExtResource("1_p7vsc")
-events = Array[Resource("res://entities/event.gd")]([SubResource("Resource_v6wm3"), SubResource("Resource_wrxcu"), SubResource("Resource_tmvty"), SubResource("Resource_7psme")])
+events = Array[Resource("res://entities/event.gd")]([SubResource("Resource_qt0gd"), SubResource("Resource_ymtlh")])
 
 [node name="Label" type="Label" parent="Sequence"]
 visible = false
@@ -43,30 +38,6 @@ offset_top = 154.0
 offset_right = 315.0
 offset_bottom = 180.0
 text = "Text1"
-
-[node name="Label2" type="Label" parent="Sequence"]
-visible = false
-offset_left = 791.0
-offset_top = 158.0
-offset_right = 834.0
-offset_bottom = 184.0
-text = "Text2"
-
-[node name="Label3" type="Label" parent="Sequence"]
-visible = false
-offset_left = 270.0
-offset_top = 382.0
-offset_right = 313.0
-offset_bottom = 408.0
-text = "Text3"
-
-[node name="Label4" type="Label" parent="Sequence"]
-visible = false
-offset_left = 799.0
-offset_top = 380.0
-offset_right = 842.0
-offset_bottom = 406.0
-text = "Text4"
 
 [node name="Sprite2D" type="Sprite2D" parent="Sequence"]
 visible = false
