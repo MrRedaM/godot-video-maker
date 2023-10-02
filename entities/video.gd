@@ -19,6 +19,7 @@ func _ready():
 			node.scale = Vector2.ZERO
 			if node is Control:
 				node.pivot_offset = node.size / 2
+	start_video()
 
 
 func start_video():
