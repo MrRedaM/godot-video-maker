@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://bxbnox56cop27"]
+
+[ext_resource type="Script" path="res://debug/demo_video.gd" id="1_3htj7"]
+[ext_resource type="Script" path="res://entities/sequence.gd" id="2_vn586"]
+[ext_resource type="Script" path="res://events/opacity_event.gd" id="3_kheky"]
+[ext_resource type="Texture2D" uid="uid://bgha5xbevtx21" path="res://icon.svg" id="4_vqbua"]
+
+[sub_resource type="Resource" id="Resource_cn1rp"]
+script = ExtResource("3_kheky")
+opacity = 1.0
+target_nodes_paths = Array[NodePath]([NodePath("Sprite1")])
+start_mode = 0
+duration = 1.0
+trans_type = 0
+ease_type = 0
+delay = 0.0
+
+[sub_resource type="Resource" id="Resource_oid8n"]
+script = ExtResource("3_kheky")
+opacity = 1.0
+target_nodes_paths = Array[NodePath]([NodePath("Label1")])
+start_mode = 1
+duration = 1.0
+trans_type = 0
+ease_type = 0
+delay = 0.0
+
+[sub_resource type="Resource" id="Resource_ia3ix"]
+script = ExtResource("3_kheky")
+opacity = 1.0
+target_nodes_paths = Array[NodePath]([NodePath("Sprite2")])
+start_mode = 1
+duration = 2.0
+trans_type = 0
+ease_type = 0
+delay = 1.0
+
+[sub_resource type="Resource" id="Resource_djgux"]
+script = ExtResource("3_kheky")
+opacity = 1.0
+target_nodes_paths = Array[NodePath]([NodePath("Label2")])
+start_mode = 0
+duration = 1.0
+trans_type = 0
+ease_type = 0
+delay = 0.0
+
+[node name="DemoVideo" type="Node" node_paths=PackedStringArray("sequences")]
+script = ExtResource("1_3htj7")
+sequences = [NodePath("Sequence"), NodePath("Sequence2")]
+
+[node name="Sequence" type="Node" parent="."]
+script = ExtResource("2_vn586")
+events = Array[Resource("res://entities/event.gd")]([SubResource("Resource_cn1rp"), SubResource("Resource_oid8n")])
+
+[node name="Sprite1" type="Sprite2D" parent="Sequence" groups=["StartZeroOpacity"]]
+position = Vector2(296, 252)
+texture = ExtResource("4_vqbua")
+
+[node name="Label1" type="Label" parent="Sequence" groups=["StartZeroOpacity"]]
+offset_left = 272.0
+offset_top = 154.0
+offset_right = 315.0
+offset_bottom = 180.0
+text = "Text1"
+
+[node name="Sequence2" type="Node" parent="."]
+script = ExtResource("2_vn586")
+events = Array[Resource("res://entities/event.gd")]([SubResource("Resource_ia3ix"), SubResource("Resource_djgux")])
+
+[node name="Sprite2" type="Sprite2D" parent="Sequence2" groups=["StartZeroOpacity"]]
+position = Vector2(913, 521)
+texture = ExtResource("4_vqbua")
+
+[node name="Label2" type="Label" parent="Sequence2" groups=["StartZeroOpacity"]]
+offset_left = 891.0
+offset_top = 423.0
+offset_right = 934.0
+offset_bottom = 449.0
+text = "Text2
+"

@@ -15,6 +15,7 @@ enum StartMode {WITH_PREVIOUS, AFTER_PREVIOUS}
 @export var delay := 0.0
 
 var target_nodes : Array[Node]
+var finished := false
 
 
 func start_event():
@@ -22,8 +23,6 @@ func start_event():
 		var node = VideoMaker.search_node(path)
 		if node:
 			target_nodes.append(node)
-	if not target_nodes.is_empty():
-		return
 	event_started.emit()
-
+	event_finished.connect(func(): finished = true)
 
