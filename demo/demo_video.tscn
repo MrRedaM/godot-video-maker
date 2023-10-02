@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bxbnox56cop27"]
+[gd_scene load_steps=18 format=3 uid="uid://bxbnox56cop27"]
 
 [ext_resource type="Script" path="res://demo/demo_video.gd" id="1_0yauy"]
 [ext_resource type="Script" path="res://entities/sequence.gd" id="2_w60ms"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bgha5xbevtx21" path="res://icon.svg" id="4_acyn5"]
 [ext_resource type="Script" path="res://events/scale_event.gd" id="5_5mccl"]
 [ext_resource type="Script" path="res://events/rotation_event.gd" id="5_twqkx"]
+[ext_resource type="Script" path="res://entities/event.gd" id="7_r0w04"]
 
 [sub_resource type="Resource" id="Resource_oid8n"]
 script = ExtResource("3_gkmlm")
@@ -58,15 +59,24 @@ trans_type = 0
 ease_type = 0
 delay = 0.0
 
+[sub_resource type="Resource" id="Resource_6h068"]
+script = ExtResource("7_r0w04")
+target_nodes_paths = Array[NodePath]([])
+start_mode = 0
+duration = 1.0
+trans_type = 0
+ease_type = 0
+delay = 0.0
+
 [sub_resource type="Resource" id="Resource_cusgk"]
 script = ExtResource("5_5mccl")
 scale = Vector2(1, 1)
 target_nodes_paths = Array[NodePath]([NodePath("Label2")])
-start_mode = 0
+start_mode = 1
 duration = 0.5
 trans_type = 10
 ease_type = 1
-delay = 1.0
+delay = 0.0
 
 [sub_resource type="Resource" id="Resource_nuflc"]
 script = ExtResource("5_5mccl")
@@ -94,7 +104,7 @@ sequences = [NodePath("Sequence2"), NodePath("Sequence")]
 
 [node name="Sequence" type="Node" parent="."]
 script = ExtResource("2_w60ms")
-events = Array[Resource("res://entities/event.gd")]([SubResource("Resource_oid8n"), SubResource("Resource_cn1rp"), SubResource("Resource_8l6j5"), SubResource("Resource_r7368"), SubResource("Resource_v2ywp")])
+events = Array[ExtResource("7_r0w04")]([SubResource("Resource_oid8n"), SubResource("Resource_cn1rp"), SubResource("Resource_8l6j5"), SubResource("Resource_r7368"), SubResource("Resource_v2ywp")])
 
 [node name="Sprite1" type="Sprite2D" parent="Sequence" groups=["StartZeroOpacity"]]
 position = Vector2(296, 252)
@@ -109,7 +119,7 @@ text = "Text1"
 
 [node name="Sequence2" type="Node" parent="."]
 script = ExtResource("2_w60ms")
-events = Array[Resource("res://entities/event.gd")]([SubResource("Resource_cusgk"), SubResource("Resource_nuflc"), SubResource("Resource_jshls")])
+events = Array[ExtResource("7_r0w04")]([SubResource("Resource_6h068"), SubResource("Resource_cusgk"), SubResource("Resource_nuflc"), SubResource("Resource_jshls")])
 
 [node name="Sprite2" type="Sprite2D" parent="Sequence2" groups=["StartZeroOpacity", "StartZeroScale"]]
 position = Vector2(913, 521)

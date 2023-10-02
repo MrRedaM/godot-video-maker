@@ -20,6 +20,7 @@ func start_next_event() -> bool:
 	if event_idx < events.size():
 		var event = events[event_idx]
 		await get_tree().create_timer(event.delay).timeout
+		get_tree().create_timer(event.duration).timeout.connect(func(): event.event_finished.emit())
 		event.start_event()
 		event_idx += 1
 		if event_idx < events.size() and events[event_idx].start_mode == Event.StartMode.WITH_PREVIOUS:

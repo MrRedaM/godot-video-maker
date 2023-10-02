@@ -10,5 +10,4 @@ func _animate_canvas_property(event: Event, canvas: CanvasItem, property: String
 	tween.set_trans(event.trans_type)
 	tween.set_ease(event.ease_type)
 	tween.tween_property(canvas, property, value, event.duration)
-	await tween.finished
-	event.event_finished.emit()
+
