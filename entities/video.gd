@@ -20,6 +20,7 @@ func _ready():
 			if node is Control:
 				node.pivot_offset = node.size / 2
 	start_video()
+	video_finished.connect(func(): get_tree().quit())
 
 
 func start_video():

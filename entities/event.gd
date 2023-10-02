@@ -20,7 +20,7 @@ var finished := false
 
 func start_event():
 	for path in target_nodes_paths:
-		var node = VideoMaker.search_node(path)
+		var node = VideoMaker._search_node(path)
 		if node:
 			target_nodes.append(node)
 	event_started.emit()

@@ -12,11 +12,5 @@ func start_event():
 			rotate_canvas(node)
 
 
-
 func rotate_canvas(canvas: CanvasItem):
-	var tween = canvas.create_tween()
-	tween.set_trans(trans_type)
-	tween.set_ease(ease_type)
-	tween.tween_property(canvas, "rotation_degrees", angle, duration)
-	await tween.finished
-	event_finished.emit()
+	VideoMaker._animate_canvas_property(self, canvas, "rotation_degrees", angle)

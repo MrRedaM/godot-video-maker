@@ -13,10 +13,5 @@ func start_event():
 
 
 func animate_opacity_canvas(canvas: CanvasItem):
-	var tween = canvas.create_tween()
-	tween.set_trans(trans_type)
-	tween.set_ease(ease_type)
-	tween.tween_property(canvas, "modulate:a", opacity, duration)
-	await tween.finished
-	event_finished.emit()
+	VideoMaker._animate_canvas_property(self, canvas, "modulate:a", opacity)
 
