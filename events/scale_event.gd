@@ -1,22 +1,21 @@
-class_name OpacityEvent
+class_name ScaleEvent
 extends Event
 
 
-@export var opacity := 1.0
+@export var scale := Vector2(1, 1)
 
 
 func start_event():
 	super()
 	for node in target_nodes:
 		if node is CanvasItem:
-			animate_opacity_canvas(node)
+			scale_canvas(node)
 
 
-func animate_opacity_canvas(canvas: CanvasItem):
+func scale_canvas(canvas: CanvasItem):
 	var tween = canvas.create_tween()
 	tween.set_trans(trans_type)
 	tween.set_ease(ease_type)
-	tween.tween_property(canvas, "modulate:a", opacity, duration)
+	tween.tween_property(canvas, "scale", scale, duration)
 	await tween.finished
 	event_finished.emit()
-

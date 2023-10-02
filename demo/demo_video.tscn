@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://bxbnox56cop27"]
+
+[ext_resource type="Script" path="res://demo/demo_video.gd" id="1_0yauy"]
+[ext_resource type="Script" path="res://entities/sequence.gd" id="2_w60ms"]
+[ext_resource type="Script" path="res://events/opacity_event.gd" id="3_gkmlm"]
+[ext_resource type="Texture2D" uid="uid://bgha5xbevtx21" path="res://icon.svg" id="4_acyn5"]
+[ext_resource type="Script" path="res://events/scale_event.gd" id="5_5mccl"]
+
+[sub_resource type="Resource" id="Resource_oid8n"]
+script = ExtResource("3_gkmlm")
+opacity = 1.0
+target_nodes_paths = Array[NodePath]([NodePath("Label1")])
+start_mode = 1
+duration = 1.0
+trans_type = 1
+ease_type = 1
+delay = 1.0
+
+[sub_resource type="Resource" id="Resource_cn1rp"]
+script = ExtResource("3_gkmlm")
+opacity = 1.0
+target_nodes_paths = Array[NodePath]([NodePath("Sprite1")])
+start_mode = 1
+duration = 1.0
+trans_type = 1
+ease_type = 1
+delay = 0.0
+
+[sub_resource type="Resource" id="Resource_cusgk"]
+script = ExtResource("5_5mccl")
+scale = Vector2(1, 1)
+target_nodes_paths = Array[NodePath]([NodePath("Label2")])
+start_mode = 0
+duration = 0.5
+trans_type = 10
+ease_type = 1
+delay = 0.0
+
+[sub_resource type="Resource" id="Resource_nuflc"]
+script = ExtResource("5_5mccl")
+scale = Vector2(1, 1)
+target_nodes_paths = Array[NodePath]([NodePath("Sprite2")])
+start_mode = 1
+duration = 0.5
+trans_type = 10
+ease_type = 1
+delay = 0.0
+
+[node name="DemoVideo" type="Node" node_paths=PackedStringArray("sequences")]
+script = ExtResource("1_0yauy")
+sequences = [NodePath("Sequence2"), NodePath("Sequence")]
+
+[node name="Sequence" type="Node" parent="."]
+script = ExtResource("2_w60ms")
+events = Array[Resource("res://entities/event.gd")]([SubResource("Resource_oid8n"), SubResource("Resource_cn1rp")])
+
+[node name="Sprite1" type="Sprite2D" parent="Sequence" groups=["StartZeroOpacity"]]
+position = Vector2(296, 252)
+texture = ExtResource("4_acyn5")
+
+[node name="Label1" type="Label" parent="Sequence" groups=["StartZeroOpacity"]]
+offset_left = 272.0
+offset_top = 154.0
+offset_right = 315.0
+offset_bottom = 180.0
+text = "Text1"
+
+[node name="Sequence2" type="Node" parent="."]
+script = ExtResource("2_w60ms")
+events = Array[Resource("res://entities/event.gd")]([SubResource("Resource_cusgk"), SubResource("Resource_nuflc")])
+
+[node name="Sprite2" type="Sprite2D" parent="Sequence2" groups=["StartZeroScale"]]
+position = Vector2(913, 521)
+texture = ExtResource("4_acyn5")
+
+[node name="Label2" type="Label" parent="Sequence2" groups=["StartZeroScale"]]
+offset_left = 891.0
+offset_top = 423.0
+offset_right = 934.0
+offset_bottom = 449.0
+text = "Text2
+"
