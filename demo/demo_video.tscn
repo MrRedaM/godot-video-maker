@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bxbnox56cop27"]
+[gd_scene load_steps=23 format=3 uid="uid://bxbnox56cop27"]
 
 [ext_resource type="Script" path="res://demo/demo_video.gd" id="1_0yauy"]
 [ext_resource type="Script" path="res://entities/sequence.gd" id="2_w60ms"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://events/rotation_event.gd" id="5_twqkx"]
 [ext_resource type="Script" path="res://events/function_call_event.gd" id="6_w7n2t"]
 [ext_resource type="Script" path="res://entities/event.gd" id="7_r0w04"]
+[ext_resource type="Script" path="res://events/translation_path2d_event.gd" id="7_yksa4"]
 
 [sub_resource type="Resource" id="Resource_oid8n"]
 script = ExtResource("3_gkmlm")
@@ -55,10 +56,20 @@ script = ExtResource("5_twqkx")
 angle = 720.0
 target_nodes_paths = Array[NodePath]([NodePath("Sprite1")])
 start_mode = 1
-duration = 2.0
+duration = 1.0
 trans_type = 0
 ease_type = 0
 delay = 0.0
+
+[sub_resource type="Resource" id="Resource_c8nwa"]
+script = ExtResource("7_yksa4")
+path2d_node_path = NodePath("Path2D")
+target_nodes_paths = Array[NodePath]([NodePath("Sprite1")])
+start_mode = 1
+duration = 2.0
+trans_type = 0
+ease_type = 0
+delay = 1.0
 
 [sub_resource type="Resource" id="Resource_us2d8"]
 script = ExtResource("6_w7n2t")
@@ -70,6 +81,12 @@ duration = 1.0
 trans_type = 0
 ease_type = 0
 delay = 1.0
+
+[sub_resource type="Curve2D" id="Curve2D_ndm6v"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 844, 330, 2, -289.601, -2, 289.601, 177, 480)
+}
+point_count = 2
 
 [sub_resource type="Resource" id="Resource_6h068"]
 script = ExtResource("7_r0w04")
@@ -116,7 +133,7 @@ sequences = [NodePath("Sequence2"), NodePath("Sequence")]
 
 [node name="Sequence" type="Node" parent="."]
 script = ExtResource("2_w60ms")
-events = Array[ExtResource("7_r0w04")]([SubResource("Resource_oid8n"), SubResource("Resource_cn1rp"), SubResource("Resource_8l6j5"), SubResource("Resource_r7368"), SubResource("Resource_v2ywp"), SubResource("Resource_us2d8")])
+events = Array[ExtResource("7_r0w04")]([SubResource("Resource_oid8n"), SubResource("Resource_cn1rp"), SubResource("Resource_8l6j5"), SubResource("Resource_r7368"), SubResource("Resource_v2ywp"), SubResource("Resource_c8nwa"), SubResource("Resource_us2d8")])
 
 [node name="Sprite1" type="Sprite2D" parent="Sequence" groups=["StartZeroOpacity"]]
 position = Vector2(296, 252)
@@ -128,6 +145,9 @@ offset_top = 154.0
 offset_right = 315.0
 offset_bottom = 180.0
 text = "Text1"
+
+[node name="Path2D" type="Path2D" parent="Sequence"]
+curve = SubResource("Curve2D_ndm6v")
 
 [node name="Sequence2" type="Node" parent="."]
 script = ExtResource("2_w60ms")
