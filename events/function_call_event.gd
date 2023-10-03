@@ -3,6 +3,7 @@ extends Event
 
 
 @export var funciton_name : String
+@export var parameters: Array
 
 
 func start_event():
@@ -13,4 +14,5 @@ func start_event():
 
 
 func _call_func(node: Node):
-	node.call(funciton_name)
+	if node.has_method(funciton_name):
+		node.callv(funciton_name, parameters)

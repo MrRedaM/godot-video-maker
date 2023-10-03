@@ -63,6 +63,7 @@ delay = 0.0
 [sub_resource type="Resource" id="Resource_us2d8"]
 script = ExtResource("6_w7n2t")
 funciton_name = "hide"
+parameters = []
 target_nodes_paths = Array[NodePath]([NodePath("Sprite1")])
 start_mode = 1
 duration = 1.0
