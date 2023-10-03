@@ -9,9 +9,9 @@ func start_event():
 	super()
 	for node in target_nodes:
 		if node is CanvasItem:
-			animate_opacity_canvas(node)
+			_animate_opacity_canvas(node)
 
 
-func animate_opacity_canvas(canvas: CanvasItem):
+func _animate_opacity_canvas(canvas: CanvasItem):
 	VideoMaker._animate_canvas_property(self, canvas, "modulate:a", opacity)
 

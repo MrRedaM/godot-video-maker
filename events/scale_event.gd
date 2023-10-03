@@ -9,8 +9,8 @@ func start_event():
 	super()
 	for node in target_nodes:
 		if node is CanvasItem:
-			scale_canvas(node)
+			_scale_canvas(node)
 
 
-func scale_canvas(canvas: CanvasItem):
+func _scale_canvas(canvas: CanvasItem):
 	VideoMaker._animate_canvas_property(self, canvas, "scale", scale)

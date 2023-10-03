@@ -9,8 +9,8 @@ func start_event():
 	super()
 	for node in target_nodes:
 		if node is CanvasItem:
-			rotate_canvas(node)
+			_rotate_canvas(node)
 
 
-func rotate_canvas(canvas: CanvasItem):
+func _rotate_canvas(canvas: CanvasItem):
 	VideoMaker._animate_canvas_property(self, canvas, "rotation_degrees", angle)
