@@ -19,6 +19,9 @@ func _ready():
 			node.scale = Vector2.ZERO
 			if node is Control:
 				node.pivot_offset = node.size / 2
+	for node in get_tree().get_nodes_in_group("StartTextZeroVisibleRatio"):
+		if node is Label or node is RichTextLabel:
+			node.visible_ratio = 0
 	start_video()
 	video_finished.connect(func(): get_tree().quit())
 
