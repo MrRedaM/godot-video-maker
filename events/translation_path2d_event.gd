@@ -30,4 +30,4 @@ func _follow_path_canvas(canvas: CanvasItem):
 
 func _get_canvas_path_relative_position(ratio, canvas, original_position):
 	follow.progress_ratio = ratio
-	canvas.position = original_position + follow.global_position - path2d.curve.get_point_position(0)
+	canvas.global_position = original_position + follow.position - path2d.curve.get_point_position(0)

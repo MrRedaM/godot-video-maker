@@ -67,8 +67,8 @@ path2d_node_path = NodePath("Path2D")
 target_nodes_paths = Array[NodePath]([NodePath("Sprite1")])
 start_mode = 1
 duration = 2.0
-trans_type = 0
-ease_type = 0
+trans_type = 3
+ease_type = 2
 delay = 1.0
 
 [sub_resource type="Resource" id="Resource_us2d8"]
@@ -84,9 +84,9 @@ delay = 1.0
 
 [sub_resource type="Curve2D" id="Curve2D_ndm6v"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 844, 330, 2, -289.601, -2, 289.601, 177, 480)
+"points": PackedVector2Array(2.71743, -176.069, -2.71743, 176.069, 848.883, 329.231, 6, 173.181, -6, -173.181, 518.801, 453.198, 1.9828, -203.897, -1.9828, 203.897, 177, 480)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Resource" id="Resource_6h068"]
 script = ExtResource("7_r0w04")
@@ -147,6 +147,8 @@ offset_bottom = 180.0
 text = "Text1"
 
 [node name="Path2D" type="Path2D" parent="Sequence"]
+position = Vector2(34.7579, -150.565)
+scale = Vector2(0.995718, 1.0648)
 curve = SubResource("Curve2D_ndm6v")
 
 [node name="Sequence2" type="Node" parent="."]
