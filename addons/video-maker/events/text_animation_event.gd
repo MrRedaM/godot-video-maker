@@ -3,6 +3,15 @@ extends Event
 
 
 @export_range(0.0, 1.0) var visible_ratio := 1.0
+@export var hide_on_sequence_start := false
+
+
+func init(sequence: Sequence):
+	super(sequence)
+	if hide_on_sequence_start:
+		for node in target_nodes:
+			if node is Label or node is RichTextLabel:
+				node.visible_ratio = 0
 
 
 func start_event():
@@ -13,4 +22,4 @@ func start_event():
 
 
 func _animate_text_visible_ratio(text: Control):
-	VideoMaker._animate_canvas_property(self, text, "visible_ratio", visible_ratio)
+	AnimationUtils.animate_canvas_property(self, text, "visible_ratio", visible_ratio)

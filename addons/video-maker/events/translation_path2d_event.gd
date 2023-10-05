@@ -10,7 +10,7 @@ var follow: PathFollow2D
 
 func start_event():
 	super()
-	path2d = VideoMaker._search_node(path2d_node_path)
+	path2d = _sequence.find_child(path2d_node_path)
 	for node in target_nodes:
 		if node is CanvasItem:
 			_follow_path_canvas(node)

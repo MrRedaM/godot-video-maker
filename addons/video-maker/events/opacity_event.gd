@@ -3,6 +3,15 @@ extends Event
 
 
 @export var opacity := 1.0
+@export var hide_on_sequence_start := false
+
+
+func init(sequence: Sequence):
+	super(sequence)
+	if hide_on_sequence_start:
+		for node in target_nodes:
+			if node is CanvasItem:
+				node.modulate.a = 0
 
 
 func start_event():
@@ -13,5 +22,5 @@ func start_event():
 
 
 func _animate_opacity_canvas(canvas: CanvasItem):
-	VideoMaker._animate_canvas_property(self, canvas, "modulate:a", opacity)
+	AnimationUtils.animate_canvas_property(self, canvas, "modulate:a", opacity)
 

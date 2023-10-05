@@ -17,12 +17,18 @@ enum StartMode {WITH_PREVIOUS, AFTER_PREVIOUS}
 var target_nodes : Array[Node]
 var finished := false
 
+var _sequence : Sequence
 
-func start_event():
+
+func init(sequence: Sequence):
+	_sequence = sequence
 	for path in target_nodes_paths:
-		var node = VideoMaker._search_node(path)
+		var node = sequence.find_child(path)
 		if node:
 			target_nodes.append(node)
+
+
+func start_event():
 	event_started.emit()
 	event_finished.connect(func(): finished = true)
 

@@ -5,13 +5,18 @@ extends Node
 signal sequence_started()
 signal sequence_finished()
 
-@export
-var events : Array[Event]
+@export var events : Array[Event]
 
 var event_idx : int = 0
 
 
+func _ready():
+	start_sequence()
+
+
 func start_sequence():
+	for event in events:
+		event.init(self)
 	if await start_next_event():
 		sequence_started.emit()
 

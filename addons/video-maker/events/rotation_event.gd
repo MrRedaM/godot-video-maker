@@ -13,4 +13,4 @@ func start_event():
 
 
 func _rotate_canvas(canvas: CanvasItem):
-	VideoMaker._animate_canvas_property(self, canvas, "rotation_degrees", angle)
+	AnimationUtils.animate_canvas_property(self, canvas, "rotation_degrees", angle)

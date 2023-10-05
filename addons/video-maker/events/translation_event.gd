@@ -2,7 +2,8 @@ class_name TranslationEvent
 extends Event
 
 
-@export var position := Vector2.ZERO
+@export var vector := Vector2.ZERO
+@export var add_to_position := true
 
 
 func start_event():
@@ -13,4 +14,7 @@ func start_event():
 
 
 func _translate_canvas(canvas: CanvasItem):
-	VideoMaker._animate_canvas_property(self, canvas, "position", position)
+	if add_to_position:
+		AnimationUtils.animate_canvas_property(self, canvas, "position", canvas.position + vector)
+	else:
+		AnimationUtils.animate_canvas_property(self, canvas, "position", vector)
