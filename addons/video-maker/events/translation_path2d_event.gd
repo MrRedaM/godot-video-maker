@@ -26,6 +26,7 @@ func _follow_path_canvas(canvas: CanvasItem):
 	tween.set_ease(ease_type)
 	var original_position = canvas.global_position
 	tween.tween_method(_get_canvas_path_relative_position.bind(canvas, original_position), 0.0, 1.0, duration)
+	tween.finished.connect(func(): follow.queue_free())
 
 
 func _get_canvas_path_relative_position(ratio, canvas, original_position):
