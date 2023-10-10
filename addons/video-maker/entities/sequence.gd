@@ -5,12 +5,16 @@ extends Node
 signal sequence_started()
 signal sequence_finished()
 
+@export var create_camera2d := true
 @export var events : Array[Event]
 
 var event_idx : int = 0
+var camera2d : Camera2D
 
 
 func _ready():
+	if create_camera2d:
+		_init_camera2d()
 	start_sequence()
 
 
@@ -43,3 +47,10 @@ func start_next_event() -> bool:
 		sequence_finished.emit()
 	return false
 
+
+func _init_camera2d():
+	camera2d = Camera2D.new()
+	camera2d.offset = get_window().size / 2
+	camera2d.make_current()
+	camera2d.add_to_group("Camera2D")
+	add_child(camera2d)
