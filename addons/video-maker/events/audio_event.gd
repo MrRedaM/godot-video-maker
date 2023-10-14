@@ -6,7 +6,6 @@ extends Event
 
 
 func start_event():
-	duration = stream.get_length()
 	super()
 	var player = AudioStreamPlayer.new()
 	player.stream = stream

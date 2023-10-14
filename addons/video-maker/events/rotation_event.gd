@@ -1,5 +1,5 @@
 class_name RotationEvent
-extends Event
+extends TweenEvent
 
 
 @export var angle := 90.0

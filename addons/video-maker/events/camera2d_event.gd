@@ -1,5 +1,5 @@
 class_name Camera2DFocusEvent
-extends Event
+extends TweenEvent
 
 
 @export var zoom := Vector2(1, 1)

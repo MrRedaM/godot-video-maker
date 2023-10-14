@@ -1,5 +1,5 @@
 class_name TranslationEvent
-extends Event
+extends TweenEvent
 
 
 @export var vector := Vector2.ZERO

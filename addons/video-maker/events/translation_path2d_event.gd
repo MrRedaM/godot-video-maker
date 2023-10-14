@@ -1,5 +1,5 @@
 class_name TranslationPath2DEvent
-extends Event
+extends TweenEvent
 
 
 @export_node_path("Path2D") var path2d_node_path: NodePath

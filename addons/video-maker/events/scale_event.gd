@@ -1,5 +1,5 @@
 class_name ScaleEvent
-extends Event
+extends TweenEvent
 
 
 @export var scale := Vector2(1, 1)

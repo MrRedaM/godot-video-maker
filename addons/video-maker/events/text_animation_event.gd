@@ -1,5 +1,5 @@
 class_name TextAnimationEvent
-extends Event
+extends TweenEvent
 
 
 @export_range(0.0, 1.0) var visible_ratio := 1.0

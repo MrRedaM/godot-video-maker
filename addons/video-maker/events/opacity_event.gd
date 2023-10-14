@@ -1,5 +1,5 @@
 class_name OpacityEvent
-extends Event
+extends TweenEvent
 
 
 @export var opacity := 1.0
