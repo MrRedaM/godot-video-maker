@@ -7,10 +7,10 @@ signal event_finished()
 
 enum StartMode {WITH_PREVIOUS, AFTER_PREVIOUS}
 
+@export var target_nodes_paths : Array[NodePath]
 @export_group("Event params")
 @export var start_mode : StartMode
 @export var delay := 0.0
-@export var target_nodes_paths : Array[NodePath]
 
 var target_nodes : Array[Node]
 var finished := false
