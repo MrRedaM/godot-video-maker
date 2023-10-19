@@ -34,19 +34,25 @@ func start_event():
 			tween.set_ease(ease_type)
 		for tweener in tweeners:
 			tweener.target_node = node
-			if tweener.type == TweenerAnimation.TweenerType.Property:
+			if tweener is CustomPropertyTweener:
 				var property_tweener = tween.tween_property(
-					node, tweener.property, tweener.value, tweener.duration)
+					tweener.target_node, tweener.property, tweener.value, tweener.duration)
 				if tweener.override_params:
 					property_tweener.set_trans(tweener.trans_type)
 					property_tweener.set_ease(tweener.ease_type)
 					property_tweener.set_delay(tweener.delay)
-			if tweener.type == TweenerAnimation.TweenerType.Method:
-				pass
-			if tweener.type == TweenerAnimation.TweenerType.Callback:
-				pass
-			if tweener.type == TweenerAnimation.TweenerType.Interval:
-				pass
+				if "relative" in tweener and tweener.relative:
+					property_tweener.as_relative()
+			if tweener is CustomMethodTweener:
+				var method_tweener = tween.tween_method(tweener.method, tweener.from_value, tweener.to_value, tweener.duration)
+				if tweener.override_params:
+					method_tweener.set_trans(tweener.trans_type)
+					method_tweener.set_ease(tweener.ease_type)
+					method_tweener.set_delay(tweener.delay)
+#			if tweener.type == TweenerAnimation.TweenerType.Callback:
+#				pass
+#			if tweener.type == TweenerAnimation.TweenerType.Interval:
+#				pass
 			if "duration" in tweener:
 				duration += tweener.duration
 			if tweener.override_params:

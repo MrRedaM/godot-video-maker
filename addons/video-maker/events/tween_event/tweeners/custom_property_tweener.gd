@@ -12,10 +12,6 @@ func init(seqauence: Sequence, target_nodes: Array[Node]):
 	super(seqauence, target_nodes)
 
 
-func get_type() -> TweenerAnimation.TweenerType:
-	return TweenerAnimation.TweenerType.Property
-
-
 func get_property() -> String:
 	return property
 

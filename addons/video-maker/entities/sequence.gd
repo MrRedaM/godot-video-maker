@@ -49,7 +49,8 @@ func start_next_event() -> bool:
 
 func _init_camera2d():
 	camera2d = Camera2D.new()
-	camera2d.offset = get_window().size / 2
+	camera2d.anchor_mode = Camera2D.ANCHOR_MODE_DRAG_CENTER
+	camera2d.global_position = get_window().size / 2
 	camera2d.make_current()
 	camera2d.add_to_group("Camera2D")
 	add_child(camera2d)

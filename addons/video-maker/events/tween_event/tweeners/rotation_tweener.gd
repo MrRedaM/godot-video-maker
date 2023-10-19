@@ -3,6 +3,7 @@ extends CustomPropertyTweener
 
 
 @export var angle := 0.0
+@export var relative := true
 @export var apply_reversed_rotation_on_start := false
 
 
@@ -21,4 +22,4 @@ func get_property() -> String:
 
 
 func get_value() -> Variant:
-	return target_node.rotation_degrees + angle
+	return angle
