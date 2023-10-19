@@ -5,6 +5,8 @@ extends Event
 @export var parallel := false
 @export var loop := false
 @export var loop_iterations := 0
+@export var target_nodes_paths : Array[NodePath]
+@export var deplay_between_nodes := 0.0
 @export var tweeners : Array[TweenerAnimation]
 
 @export_group("Default tween params")
@@ -13,10 +15,17 @@ extends Event
 @export var ease_type : Tween.EaseType
 
 var tween : Tween
+var target_nodes : Array[Node]
 
 
 func init(sequence: Sequence):
 	super(sequence)
+
+	for path in target_nodes_paths:
+		var node = sequence.get_node(path)
+		if node:
+			target_nodes.append(node)
+	
 	for tweener in tweeners:
 		tweener.init(sequence, target_nodes)
 
@@ -25,6 +34,7 @@ func start_event():
 	super()
 	var duration = 0.0
 	for node in target_nodes:
+		await _sequence.get_tree().create_timer(deplay_between_nodes).timeout
 		tween = _sequence.create_tween()
 		tween.set_parallel(parallel)
 		if loop:

@@ -11,4 +11,7 @@ func start_event():
 	player.stream = stream
 	_sequence.add_child(player)
 	player.play()
-	player.finished.connect(func(): player.queue_free())
+	player.finished.connect(func(): 
+		event_finished.emit()
+		player.queue_free()
+		)

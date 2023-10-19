@@ -20,7 +20,8 @@ func _ready():
 
 func start_sequence():
 	for event in events:
-		event.init(self)
+		if event:
+			event.init(self)
 	if await start_next_event():
 		sequence_started.emit()
 
