@@ -30,6 +30,12 @@ func init(sequence: Sequence):
 		tweener.init(sequence, target_nodes)
 
 
+func reset():
+	super()
+	for tweener in tweeners:
+		tweener.reset()
+
+
 func start_event():
 	super()
 	var duration = 0.0

@@ -20,6 +20,10 @@ func init(sequence: Sequence):
 	_sequence = sequence
 
 
+func reset():
+	finished = false
+
+
 func start_event():
 	event_started.emit()
 	event_finished.connect(func(): finished = true)

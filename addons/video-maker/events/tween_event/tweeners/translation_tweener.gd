@@ -3,7 +3,6 @@ extends CustomPropertyTweener
 
 
 @export var vector := Vector2.ZERO
-@export var relative := true
 @export var apply_reversed_trans_on_start := false
 
 

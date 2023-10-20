@@ -3,7 +3,6 @@ extends CustomPropertyTweener
 
 
 @export var angle := 0.0
-@export var relative := true
 @export var apply_reversed_rotation_on_start := false
 
 
@@ -15,6 +14,7 @@ func init(sequence: Sequence, target_nodes: Array[Node]):
 			node.pivot_offset = node.size / 2
 		if apply_reversed_rotation_on_start and node is CanvasItem:
 			node.rotation_degrees -= angle
+
 
 
 func get_property() -> String:
