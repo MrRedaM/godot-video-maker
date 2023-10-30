@@ -63,7 +63,7 @@ func _focus_on_node():
 func _translate():
 	var tweener = tween.tween_property(
 		camera,
-		"position",
+		"global_position",
 		vector,
 		duration)
 	if relative_translation:
@@ -83,10 +83,10 @@ func _zoom():
 
 
 func _reset_position():
-	var tweener = tween.tween_property(
+	tween.tween_property(
 		camera,
 		"position",
-		_sequence.get_window().size / 2,
+		_sequence.initial_pos,
 		duration
 		)
 

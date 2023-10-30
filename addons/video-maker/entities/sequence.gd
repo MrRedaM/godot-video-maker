@@ -8,6 +8,8 @@ signal sequence_finished()
 @export var create_camera2d := true
 @export var events : Array[Event]
 
+var initial_pos : Vector2
+
 var _event_player : EventPlayer
 var _camera2d : Camera2D
 
@@ -29,7 +31,8 @@ func start_sequence():
 func _init_camera2d():
 	_camera2d = Camera2D.new()
 	_camera2d.anchor_mode = Camera2D.ANCHOR_MODE_DRAG_CENTER
-	_camera2d.global_position = get_window().size / 2
+	initial_pos = get_window().size / 2
+	_camera2d.position = initial_pos
 	_camera2d.make_current()
 	_camera2d.add_to_group("Camera2D")
 	add_child(_camera2d)
